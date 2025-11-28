@@ -1,0 +1,36 @@
+// AppNavGraph.kt
+package com.example.offerdeals.ui.navigation
+
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.example.offerdeals.ui.screen.*
+
+@Composable
+fun AppNavGraph(navController: NavHostController) {
+    NavHost(
+        navController = navController,
+        startDestination = "login"
+    ) {
+        composable("login") {
+            LoginScreen(navController)
+        }
+        composable("register") {
+            RegisterScreen(navController)
+        }
+        composable("home") {
+            HomeScreen(navController)
+        }
+        composable("search") {
+            ProductSearchScreen()
+        }
+        composable("forgot_password") {
+            ForgotPasswordScreen(navController)
+        }
+        // ← Add this block:
+        composable("resetpassword") {
+            ResetPasswordScreen(navController)
+        }
+    }
+}
